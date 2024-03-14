@@ -1,0 +1,56 @@
+.container1 {
+  background-color: brown;
+  width: 100vw;
+  height: 100vh;
+}
+
+.inscription {
+  margin: 0 auto;
+  border: 5px solid #fec816;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 25%;
+  position: relative;
+  top: 11em;
+  background-color: whitesmoke;
+  box-shadow: black 0 0 10px;
+} 
+
+.inscription h1 {
+  margin: 10px 0;
+}
+
+.inscription form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.inscription .form-group {
+  margin: 10px 0;
+  width: 90%;
+}
+
+.inscription label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.inscription input {
+  width: 70%;
+  padding: 9px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#button {
+  padding: 10px 20px;
+  background-color: #fec816;
+  color: black;
+  border: none;
+  cursor: pointer;
+  width: 10em;
+  border: 2px solid black;
+}

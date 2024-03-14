@@ -1,0 +1,63 @@
+/* utilisateur.css */
+.container2 {
+    width: 100%;
+    height: 88.25vh;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: brown;
+    position: relative;
+    top: 5.4em;
+  }
+  
+  .utilisateur {
+    margin-top: 10px;
+    text-align: center;
+    padding: 50px;
+    background-color: beige;
+    height: 75vh;
+  }
+
+  .utilisateur h1 {
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #fec816;
+  }
+
+  td {
+    background-color: white;
+  }
+
+  table button {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #787878;
+  }
+
+  table .btn1 {
+    background-color: #fec816;
+    position: relative;
+    right: 1em;
+  }
+
+  table .btn2 {
+    background-color: red;
+    position: relative;
+    left: 1em;
+    color: white;
+  }
+
+  

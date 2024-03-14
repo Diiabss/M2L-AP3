@@ -1,0 +1,116 @@
+.container {
+  width: 100vw;
+  height: 150vh;
+  display: flex;
+  justify-content: center;
+  background-color: brown;
+}
+
+.produits {
+    position: relative;
+    top: 8.5em;
+    max-width: 1200px;
+    width: 100vw;
+    border: 2px solid #606060;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    height: 83%;
+    background-color: white;
+  } 
+  
+  .produits h1 {
+    font-size: 1.5em;
+    font-weight: normal;
+    text-align: start;
+    padding: 10px 1.5em;
+    border-bottom: 1px solid #606060;
+  }
+
+  .galerie {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    background-color: #f5f5f5;
+  }
+  
+  .produit {
+    border: 1px solid #606060;
+    padding: 20px;
+    height: 400px;
+    background-color: white;
+  }
+
+  .images { 
+    width: 100%;
+    height: 50%;
+    margin: 0 auto;  
+  }
+
+  .images img {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    
+  }
+
+  #gourde {
+    width: 25%;
+  }
+
+  .prix {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    padding-top: 7.5px;
+    background-color: red;
+    height: 10%;
+    width: 25%;
+    color: white;
+    border: 1px solid #787878;
+  }
+
+  .descriptions {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    height: 35%;
+    background-color: whitesmoke;
+    border: 1px solid #606060;
+    padding-left: 1em;
+  }
+
+  .descriptions h2 {
+    font-weight: bold;
+    font-size: medium;
+    text-transform: uppercase;
+    margin: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .descriptions p {
+    display: flex;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-size: smaller;
+    font-weight: 500;
+    text-align: justify;
+    padding-right: 5px;
+    word-spacing: 0.5px;
+  }
+
+  .descriptions button {
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-right: 1em;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    padding: 7.5px;
+    background-color: #fec816;
+    border-radius: 5px;
+    border: 1px solid #787878;
+  }
+  

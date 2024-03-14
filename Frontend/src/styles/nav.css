@@ -1,0 +1,96 @@
+/* Navbar.css */
+
+/* Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Styles de base */
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  header {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fec816;
+    color: #fff;
+    position: fixed;
+    top:0;
+    z-index: 1;
+    height: 3.5em;
+    border-bottom: 3px solid black;
+  }
+  
+  nav {
+    display: flex;
+  }
+
+  .logo img {
+    max-width: 100px;
+    height: auto;
+    border: 3px solid black;
+    margin-top: 7px;
+    margin-left: 1em;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .links li {
+    margin-right: 1em;   
+  }
+
+  .links li a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .links li a:hover {
+    text-decoration: underline;
+    color: black
+  }
+  
+  .links li a:hover {
+    text-decoration: underline;
+  }
+
+  .icon {
+    padding: 10px;
+    font-size: larger;
+  }
+
+  /* Media queries pour la navigation responsive */
+  @media screen and (max-width: 768px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .logo {
+      margin-bottom: 20px;
+    }
+  
+    .links {
+      flex-direction: column;
+    }
+  
+    .links li {
+      margin: 10px 0;
+    }
+
+    .icon {
+      padding: 10px;
+      font-size: larger;
+    }
+  }
+
+  
+  
