@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/connexion.css';
 
 function Connexion() {
   const [email, setEmail] = useState('');
   const [mdp, setMotDePasse] = useState('');
-
+  const navigate = useNavigate(); 
 
   const handleChangeEmail = (event) => {
     setEmail(event.target.value);
@@ -24,10 +25,19 @@ function Connexion() {
       });
 
       console.log('Connexion réussie', response.data);
+
+      // Stockage du token JWT dans le localStorage ou une manière similaire de gestion des sessions
+      localStorage.setItem('token', response.data.token);
+      
+      // Redirection basée sur le type d'utilisateur
+      if (response.data.statut === 1) { 
+        navigate('/admin');
+      } else {
+        navigate('/produits');
+      }
       
     } catch (error) {
       console.error('Erreur lors de la connexion', error);
-      
     }
   };
 

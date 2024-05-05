@@ -16,7 +16,7 @@ function Accueil() {
         </p>
         <p>
           Que vous soyez un cycliste expérimenté ou que vous souhaitiez simplement vous initier à ce sport, notre site est là pour vous accompagner.
-          Nous proposons des articles, des conseils, des itinéraires, des événements et bien plus encore pour vous aider à vivre pleinement votre passion pour le vélo.
+          Nous proposons des articles pour vous aider à vivre pleinement votre passion pour le vélo.
         </p>
       </div>
     </div>

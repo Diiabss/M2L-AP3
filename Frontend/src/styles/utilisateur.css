@@ -60,4 +60,60 @@
     color: white;
   }
 
-  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: beige;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+    min-width: 300px;
+    position: relative;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content label {
+    margin-bottom: 10px;
+}
+
+.modal-content input,
+.modal-content select {
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.modal-content button {
+    background-color: #fec816;
+    width: 50%;
+    border: none;
+    padding: 10px;
+    margin: 20px auto;
+    cursor: pointer;
+    border: 1px black solid;
+
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #333;
+}

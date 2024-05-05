@@ -6,7 +6,7 @@ import Produits from './produits';
 import Inscription from './inscription';
 import Connexion from './connexion';
 import Panier from './panier';
-import Utilisateur from './utilisateur';
+import Admin from './admin';
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Accueil />} />
-        <Route path="/Utilisateur" element={<Utilisateur />} />
+        <Route path="/Admin" element={<Admin />} />
         <Route path="/Produits" element={<Produits />} />
         <Route path="/Inscription" element={<Inscription />} />
         <Route path="/Connexion" element={<Connexion />} />

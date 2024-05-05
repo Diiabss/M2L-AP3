@@ -1,94 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../styles/produits.css';
 
 function Produits() {
-  const velo = require('../assets/velo.jpg');
-  const tenue = require('../assets/tenue.jpg');
-  const casque = require('../assets/casque.jpg');
-  const lunette = require('../assets/lunettes.jpg');
-  const gourde = require('../assets/gourde.jpg');
-  const lumiere = require('../assets/eclairage.jpg');
+  const [produits, setProduits] = useState([]);
+
+  useEffect(() => {
+    // Appel Axios pour récupérer les produits du backend
+    axios.get('http://localhost:3000/api/product/products')
+      .then(response => {
+        setProduits(response.data); // Mettre à jour l'état avec les produits récupérés
+      })
+      .catch(erreur => {
+        console.error('Erreur lors de la récupération des produits:', erreur);
+      });
+  }, []);
+
+  const ajouterAuPanier = (idProduit) => {
+    const payload = {
+      panierID: 0, // Supposons un ID de panier fixé pour l'exemple
+      productID: idProduit,
+      quantite: 1 // Supposons l'ajout d'un produit à la fois
+    };
+    axios.post('http://localhost:3000/api/panier/addProduct', payload)
+      .then(response => {
+        alert('Produit ajouté au panier!');
+      })
+      .catch(erreur => {
+        console.error('Erreur lors de l\'ajout du produit au panier:', erreur);
+      });
+  };
 
   return (
     <div className="container">
-    <div className="produits">
-      <h1>Produits</h1>
-      <div className="galerie">
-        <div className="produit">
-          <div className='images'>
-            <img src={velo} alt="Velo"/>
-          </div>
-          <div className='prix'><p>499€</p></div>
-          <div className='descriptions'>
-              <h2>Speedy</h2>
-              <p>Vélo de course.</p>
-              <p>Performance, confort, exploration.</p>
-              <button>Ajouter au panier</button>
-          </div>
-        </div>
-        <div className="produit">
-          <div className='images'>
-            <img src={tenue} alt="Tenue"/>
-          </div>
-          <div className='prix'><p>119.99€</p></div>
-          <div className='descriptions'>
-              <h2>TxC</h2>
-              <p>Tenue de sport.</p>
-              <p>Style, confort, securité.</p>
-              <button>Ajouter au panier</button>
-          </div>
-        </div>
-        <div className="produit">
-          <div className='images'>
-            <img src={casque} alt="Casque"/>
-          </div>
-          <div className='prix'><p>89.99€</p></div>
-          <div className='descriptions'>
-              <h2>Gird</h2>
-              <p>Casque de cyclisme. </p>
-              <p>Sécurité, légèreté, ventilation. </p>
-              <button>Ajouter au panier</button>
-          </div>
-        </div>
-        <div className="produit">
-          <div className='images'>
-            <img src={lunette} alt="Lunette"/>
-          </div>
-          <div className='prix'><p>49.99€</p></div>
-          <div className='descriptions'>
-              <h2>Van</h2>
-              <p>Lunettes. </p> 
-              <p>Protection UV, clarté, confort. </p>
-              <button>Ajouter au panier</button>
-          </div>
-        </div>
-        <div className="produit">
-          <div className='images'>
-            <img src={gourde} alt="Gourde" id='gourde'/>
-          </div>
-          <div className='prix'><p>9.99€</p></div>
-          <div className='descriptions'>
-              <h2>R750</h2>
-              <p>Gourde en plastique. </p>
-              <p>Hydratation, praticité, durabilité. </p>
-              <button>Ajouter au panier</button>
-          </div>
-        </div>
-        <div className="produit">
-          <div className='images'>
-            <img src={lumiere} alt="Lumière"/>
-          </div>
-          <div className='prix'><p>39.99€</p></div>
-          <div className='descriptions'>
-              <h2>VLP</h2>
-              <p>Lumière avant et arrière. </p>
-              <p>Visibilité, sécurité, luminosité. </p>
-              <button>Ajouter au panier</button>
-          </div>
+      <div className="produits">
+        <h1>Produits</h1>
+        <div className="galerie">
+          {produits.map((produit, index) => (
+            <div key={index} className="produit">
+              <div className='images'>
+                <img src={produit.image} alt="produit"/>
+              </div>
+              <div className='prix'><p>{produit.prix}€</p></div>
+              <div className='descriptions'>
+                <h2>{produit.nom_produit}</h2>
+                <p>{produit.description}</p>
+                <button onClick={() => ajouterAuPanier(produit.ID)}>Ajouter au panier</button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  </div>
   );
 }
 

@@ -51,6 +51,7 @@
   .links li a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
   }
 
   .links li a:hover {
