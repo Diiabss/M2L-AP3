@@ -8,12 +8,19 @@ function Produits() {
   useEffect(() => {
     // Appel Axios pour récupérer les produits du backend
     axios.get('http://localhost:3000/api/product/products')
-      .then(response => {
-        setProduits(response.data); // Mettre à jour l'état avec les produits récupérés
-      })
-      .catch(erreur => {
-        console.error('Erreur lors de la récupération des produits:', erreur);
+    .then(response => {
+      console.log(response.data); 
+      const produitsAvecImage = response.data.map(produit => {
+        return {
+          ...produit,
+          image: produit.image ? `data:image/jpeg;base64,${produit.image}` : null
+        };
       });
+      setProduits(produitsAvecImage);
+    })
+    .catch(erreur => {
+      console.error('Erreur lors de la récupération des produits:', erreur);
+    });  
   }, []);
 
   const ajouterAuPanier = (idProduit) => {
@@ -39,7 +46,7 @@ function Produits() {
           {produits.map((produit, index) => (
             <div key={index} className="produit">
               <div className='images'>
-                <img src={produit.image} alt="produit"/>
+                <img src={produit.image} alt={produit.nom_produit} />
               </div>
               <div className='prix'><p>{produit.prix}€</p></div>
               <div className='descriptions'>
@@ -51,7 +58,7 @@ function Produits() {
           ))}
         </div>
       </div>
-    </div>
+    </div> 
   );
 }
 

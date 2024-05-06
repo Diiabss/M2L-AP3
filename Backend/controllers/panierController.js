@@ -32,7 +32,7 @@ exports.getPanierDetails = async (req, res) => {
 
 exports.addProductToPanier = async (req, res) => {
     try {
-        const { panierID, productID, quantite } = req.body; // Assurez-vous que ces valeurs sont correctement récupérées du corps de la requête
+        const { panierID, productID, quantite } = req.body; 
         
         if (!productID) {
             return res.status(400).json({ error: 'Le productID ne peut pas être null' });
@@ -62,7 +62,7 @@ exports.updateProductQuantity = async (req, res) => {
 
 exports.removeProductFromPanier = async (req, res) => {
     try {
-        const { detailID } = req.params; // ID dans la table detail_p
+        const { detailID } = req.params; 
         const deleteQuery = 'DELETE FROM detail_p WHERE ID = ?';
         await pool.query(deleteQuery, [detailID]);
         res.status(200).json({ message: 'Produit retiré du panier avec succès' });

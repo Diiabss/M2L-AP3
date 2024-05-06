@@ -8,4 +8,4 @@ router.post('/addProduct', panierController.addProductToPanier);
 router.put('/updateQuantity', panierController.updateProductQuantity);
 router.delete('/removeProduct/:detailID', panierController.removeProductFromPanier);
 
-module.exports = router;
+module.exports = router; 

@@ -1,7 +1,7 @@
 /* utilisateur.css */
 .container2 {
     width: 100%;
-    height: 88.25vh;
+    height: 100;
     margin: 0 auto;
     padding: 40px;
     background-color: brown;
@@ -14,7 +14,7 @@
     text-align: center;
     padding: 50px;
     background-color: beige;
-    height: 75vh;
+    height: 100%;
   }
 
   .utilisateur h1 {
@@ -116,4 +116,33 @@
     cursor: pointer;
     font-size: 1.5rem;
     color: #333;
+}
+
+.gestion-produits {
+  text-align: center;
+  padding: 50px;
+  background-color: beige;
+  height: 100%;  
+}
+
+.gestion-produits form {
+  margin-top: 35px;
+}
+
+.gestion-produits form button {
+  background-color: #fec816;
+  width: 10%;
+}
+
+.form-groupAdmin {
+  display: flex;
+}
+
+.form-groupAdmin input {
+  margin-left: 10px;
+}
+
+.form-groupAdmin label {
+  margin-top: 15px;
+  margin-left: 25px;
 }
