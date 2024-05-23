@@ -23,20 +23,24 @@ function Produits() {
     });  
   }, []);
 
-  const ajouterAuPanier = (idProduit) => {
+  const ajouterAuPanier = (produitID) => {
+    console.log("Produit ID envoyé:", produitID); // Ajouter cette ligne pour déboguer
+
     const payload = {
-      panierID: 0, // Supposons un ID de panier fixé pour l'exemple
-      productID: idProduit,
-      quantite: 1 // Supposons l'ajout d'un produit à la fois
+        id: 1,  // Assurez-vous que cet ID utilisateur est correct et valide
+        produitID: produitID,
+        quantite: 1
     };
+
     axios.post('http://localhost:3000/api/panier/addProduct', payload)
       .then(response => {
-        alert('Produit ajouté au panier!');
+          alert('Produit ajouté au panier!');
       })
       .catch(erreur => {
-        console.error('Erreur lors de l\'ajout du produit au panier:', erreur);
+          console.error('Erreur lors de l\'ajout du produit au panier:', erreur);
       });
-  };
+};
+
 
   return (
     <div className="container">
@@ -52,7 +56,7 @@ function Produits() {
               <div className='descriptions'>
                 <h2>{produit.nom_produit}</h2>
                 <p>{produit.description}</p>
-                <button onClick={() => ajouterAuPanier(produit.ID)}>Ajouter au panier</button>
+                <button onClick={() => ajouterAuPanier(produit.produitID)}>Ajouter au panier</button>
               </div>
             </div>
           ))}

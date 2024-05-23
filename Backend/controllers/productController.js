@@ -4,21 +4,18 @@ const jwt = require('jsonwebtoken');
 exports.getAllProducts = async (req, res) => {
     try {
         console.log("Lancement de la requête pour tous les produits");
-        await pool.query('SELECT produitID, nom_produit, description, prix, stock, image FROM produit;', function(err, rows, fields) {
-            if (err) throw err;
-            const results = rows.map(row => ({
-                ...row,
-                image: row.image ? Buffer.from(row.image).toString('base64') : null
-            }));
-            console.log(results);
-            res.status(200).json(results);
-        });
+        const [rows, fields] = await pool.query('SELECT produitID, nom_produit, description, prix, stock, image FROM produit;');
+        const results = rows.map(row => ({
+            ...row,
+            image: row.image ? Buffer.from(row.image).toString('base64') : null
+        }));
+        console.log(results);
+        res.status(200).json(results);
     } catch (error) {
-        console.log(error);
+        console.error('Error in fetching products:', error);
         res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des produits.' });
     }
 };
-
 
 exports.addProduct = async (req, res) => {
     try {
