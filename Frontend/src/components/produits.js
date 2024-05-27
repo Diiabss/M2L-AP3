@@ -7,7 +7,7 @@ function Produits() {
 
   useEffect(() => {
     // Appel Axios pour récupérer les produits du backend
-    axios.get('http://192.168.1.18:3000/api/product/products')
+    axios.get('http://192.168.1.31:3000/api/product/products')
     .then(response => {
       console.log(response.data); 
       const produitsAvecImage = response.data.map(produit => {
@@ -32,7 +32,7 @@ function Produits() {
         quantite: 1
     };
 
-    axios.post('http://192.168.1.18:3000/api/panier/addProduct', payload)
+    axios.post('http://192.168.1.31:3000/api/panier/addProduct', payload)
       .then(response => {
           alert('Produit ajouté au panier!');
       })

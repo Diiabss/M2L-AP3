@@ -19,7 +19,7 @@ function Connexion() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://192.168.1.18:3000/api/user/connexion", {
+      const response = await axios.post("http://192.168.1.31:3000/api/user/connexion", {
         email: email,
         mdp: mdp
       });

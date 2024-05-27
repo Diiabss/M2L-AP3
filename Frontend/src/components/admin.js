@@ -17,7 +17,7 @@ function Admin() {
 
     const fetchUtilisateurs = async () => {
         try {
-            const response = await axios.get('http://192.168.1.18:3000/api/user/users');
+            const response = await axios.get('http://192.168.1.31:3000/api/user/users');
             setUtilisateurs(response.data);
         } catch (error) {
             console.error('Erreur lors de la récupération des utilisateurs:', error);
@@ -26,7 +26,7 @@ function Admin() {
 
     const fetchProducts = async () => {
         try {
-            const response = await axios.get('http://192.168.1.18:3000/api/product/products');
+            const response = await axios.get('http://192.168.1.31:3000/api/product/products');
             setProducts(response.data);
         } catch (error) {
             console.error('Erreur lors de la récupération des produits:', error);
@@ -35,7 +35,7 @@ function Admin() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://192.168.1.18:3000/api/user/delete/${id}`);
+            await axios.delete(`http://192.168.1.31:3000/api/user/delete/${id}`);
             fetchUtilisateurs();  // Rafraîchir la liste après la suppression
         } catch (error) {
             console.error('Erreur lors de la suppression de l\'utilisateur:', error);
@@ -50,7 +50,7 @@ function Admin() {
     const handleSaveChanges = async () => {
         try {
             const { id, nom, email, statut } = currentUser;
-            await axios.put(`http://192.168.1.18:3000/api/user/update/${id}`, {
+            await axios.put(`http://192.168.1.31:3000/api/user/update/${id}`, {
                 nom,
                 email,
                 statut
@@ -70,7 +70,7 @@ function Admin() {
     const handleAddProduct = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://192.168.1.18:3000/api/product/products', currentProduct);
+            await axios.post('http://192.168.1.31:3000/api/product/products', currentProduct);
             fetchProducts();
             setCurrentProduct({ nom_produit: '', description: '', prix: '', stock: '' });
         } catch (error) {
@@ -86,7 +86,7 @@ function Admin() {
     const handleSaveChangesProduct = async () => {
         try {
             const { id, nom_produit, description, prix, stock } = currentProduct;
-            await axios.put(`http://192.168.1.18:3000/api/product/products/${id}`, {
+            await axios.put(`http://192.168.1.31:3000/api/product/products/${id}`, {
                 nom_produit,
                 description,
                 prix,
@@ -101,7 +101,7 @@ function Admin() {
 
     const handleDeleteProduct = async (id) => {
         try {
-            await axios.delete(`http://192.168.1.18:3000/api/product/products/${id}`);
+            await axios.delete(`http://192.168.1.31:3000/api/product/products/${id}`);
             fetchProducts();
         } catch (error) {
             console.error('Erreur lors de la suppression du produit:', error);

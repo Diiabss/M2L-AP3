@@ -9,7 +9,7 @@ function Panier() {
  
   const chargerDetailsPanier = useCallback(async () => {
     try {
-      const reponse = await axios.get(`http://192.168.1.18:3000/api/panier/${userID}`);
+      const reponse = await axios.get(`http://192.168.1.31:3000/api/panier/${userID}`);
       const articlesAvecDetails = reponse.data.map(article => ({
         ...article,
         image: article.image ? `data:image/jpeg;base64,${article.image}` : 'chemin/vers/image/par/défaut.jpg'
@@ -31,7 +31,7 @@ function Panier() {
   };
 
   const supprimerDuPanier = (produitID) => {
-    axios.delete(`http://192.168.1.18:3000/api/panier/delete/${produitID}`)
+    axios.delete(`http://192.168.1.31:3000/api/panier/delete/${produitID}`)
       .then(response => {
           alert('Produit retiré du panier!');
           // Mettre à jour l'état local pour supprimer l'article sans recharger toute la liste
