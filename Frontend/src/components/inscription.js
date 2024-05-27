@@ -20,7 +20,7 @@ function Inscription() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/user/inscription", formData);
+      const response = await axios.post("http://192.168.1.18:3000/api/user/inscription", formData);
       console.log('Inscription réussie',response.data);
     } catch (error) {
       console.error('Erreur lors de l\'inscription',error);
